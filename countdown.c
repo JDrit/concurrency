@@ -16,7 +16,7 @@ void countdown_destroy(countdown_t* countdown) {
 }
 
 void countdown_decrement(countdown_t* countdown, size_t amount) {
-  int orgValue = atomic_fetch_sub(&countdown->count, 1);
+  int orgValue = atomic_fetch_sub(&countdown->count, amount);
 
   if (orgValue == 1) {
     pthread_cond_broadcast(&countdown->conditional);

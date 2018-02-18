@@ -47,7 +47,7 @@ void* ThreadEntry(void *entry) {
   return NULL;
 }
 
-int main(int argc, char **argv) {
+int main() {
   printf("[thread main] starting\n");
 
   barrier_t barrier;
@@ -62,7 +62,7 @@ int main(int argc, char **argv) {
   pthread_t threads[NUM_THREADS];
   struct ThreadInfo infos[NUM_THREADS];
   
-  for (int i = 0 ; i < NUM_THREADS ; i++) {
+  for (size_t i = 0 ; i < NUM_THREADS ; i++) {
     infos[i].threadId = i;
     infos[i].latch = &countdown;
     infos[i].barrier = &barrier;

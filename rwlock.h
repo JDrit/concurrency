@@ -19,6 +19,10 @@ typedef struct RWLOCK {
 
 void rw_lock_init(rw_lock_t* lock);
 
+/**
+ * Destroys the locks. It is undefined behavior if the lock is used after
+ * this method has been called on it.
+ */
 void rw_lock_destroy(rw_lock_t* lock);
 
 /**
